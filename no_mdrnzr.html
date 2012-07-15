@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta  charset="utf-8" />
+<meta name="viewport" content="width=device-width, maximum-scale=1.0">
+<title>Pruebas HTML5 Modernizr</title>
+<link type="text/css" rel="stylesheet" href="css/mdrnzr.css" />
+<script type="text/javascript" src="js/script.min.js"></script>
+<script>
+	window.onload = detect;
+	
+	function detect(){
+		browser();	
+		screens();
+		html5features();
+	}
+		
+	function browser(){
+		txt= "<p>Platform: " + navigator.platform + "</p>";
+		txt+= "<p>User-agent header: " + navigator.userAgent + "</p>";
+		document.getElementById("browser").innerHTML=txt;	
+	};
+	function screens(){
+		txt= "<p>Total Width: " + screen.width + "</p>";
+		txt+= "<p>Total Height: " + screen.height + "</p>";
+		document.getElementById("screens").innerHTML=txt;	
+	};
+
+	function html5features(){
+		t = ['audioBasic','audioMP3','audioVorbis','audioWAV','audioAAC','canvasBasic','canvasTextAPI','command','datalist','details','form','iframeSandbox','iframeSrcdoc','inputAutofocus','inputPlaceholder','textareaPlaceholder','inputTypeColor','inputTypeEmail','inputTypeNumber','inputTypeRange','inputTypeSsearch','inputTypeTel','inputTypeUrl','inputTypeDate','inputTypeTime','inputTypeDatetime','inputTypeDatetimeLocal','inputTypeMonth','inputTypeWeek','meter','output','progress','time','videoBasic','videoCaptions','videoPoster','videoWebM','videoH264','videoTheora','contentEditable','crossDocumentMessaging','dragAndDrop','fileAPI','geolocation','history','localStorage_f','microdata','offlineWebApplications','serverSentEvents','sessionStorage_f','SVGBasic','SVGTextHtml','undo','IndexedDB','webSockets','webSQLDatabase','webWorkers','widgets','XMLHttpRequestCrossDomain','XMLHttpRequestSendAsFormData','XMLHttpRequestUploadProgressEvents'];
+		for( x in t){
+			e=document.getElementById(t[x]).getAttribute("class")+" "+(parseStrToFnc(t[x])?'ok':'ko');
+			document.getElementById(t[x]).setAttribute("class",e);
+		}
+	}
+	
+	function parseStrToFnc (e){
+			constructor = eval(e);
+			funcion = new constructor;
+			return funcion.value;
+	}
+</script>
+</head>
+<body>
+<h1>HTML5 TEST</h1>
+<div id="browser"></div>
+<div id="screens"></div>
+<div style="clear:both;"></div>
+<dl>
+    <div class="column">
+      <dt id="audioBasic" class="item">&lt;audio&gt;</dt>
+      <dt id="audioMP3" class="item">&lt;audio&gt; in MP3 format</dt>
+      <dt id="audioVorbis" class="item">&lt;audio&gt; in Vorbis format</dt>
+      <dt id="audioWAV" class="item">&lt;audio&gt; in WAV format</dt>
+      <dt id="audioAAC" class="item">&lt;audio&gt; in AAC format</dt>
+      <dt id="canvasBasic" class="item">&lt;canvas&gt;</dt>
+      <dt id="canvasTextAPI" class="item">&lt;canvas&gt; text <abbr>API</abbr></dt>
+      <dt id="command" class="item">&lt;command&gt;</dt>
+      <dt id="datalist" class="item">&lt;datalist&gt;</dt>
+      <dt id="details" class="item">&lt;details&gt;</dt>
+      <dt id="form" class="item">&lt;form&gt; constraint validation</dt>
+      <dt id="iframeSandbox" class="item">&lt;iframe sandbox&gt;</dt>
+      <dt id="iframeSrcdoc" class="item">&lt;iframe srcdoc&gt;</dt>
+      <dt id="inputAutofocus" class="item">&lt;input autofocus&gt;</dt>
+      <dt id="inputPlaceholder" class="item">&lt;input placeholder&gt;</dt>
+      <dt id="textareaPlaceholder" class="item">&lt;textarea placeholder&gt;</dt>
+    </div>
+    <div class="column">
+      <dt id="inputTypeColor" class="item">&lt;input type="color"&gt;</dt>
+      <dt id="inputTypeEmail" class="item">&lt;input type="email"&gt;</dt>
+      <dt id="inputTypeNumber" class="item">&lt;input type="number"</dt>
+      <dt id="inputTypeRange" class="item">&lt;input type="range"&gt;</dt>
+      <dt id="inputTypeSsearch" class="item">&lt;input type="search"&gt;</dt>
+      <dt id="inputTypeTel" class="item">&lt;input type="tel"&gt;</dt>
+      <dt id="inputTypeUrl" class="item">&lt;input type="url"&gt;</dt>
+      <dt id="inputTypeDate" class="item">&lt;input type="date"&gt;</dt>
+      <dt id="inputTypeTime" class="item">&lt;input type="time"&gt;</dt>
+      <dt id="inputTypeDatetime" class="item">&lt;input type="datetime"&gt;</dt>
+      <dt id="inputTypeDatetimeLocal" class="item">&lt;input type="datetime-local"&gt;</dt>
+      <dt id="inputTypeMonth" class="item">&lt;input type="month"&gt;</dt>
+      <dt id="inputTypeWeek" class="item">&lt;input type="week"&gt;</dt>
+    </div>
+    <div class="column">
+      <dt id="meter" class="item">&lt;meter&gt;</dt>
+      <dt id="output" class="item">&lt;output&gt;</dt>
+      <dt id="progress" class="item">&lt;progress&gt;</dt>
+      <dt id="time" class="item">&lt;time&gt;</dt>
+      <dt id="videoBasic" class="item">&lt;video&gt;</dt>
+      <dt id="videoCaptions" class="item">&lt;video caption&gt;</dt>
+      <dt id="videoPoster" class="item">&lt;video poster&gt;</dt>
+      <dt id="videoWebM" class="item">&lt;video&gt; in WebM format</dt>
+      <dt id="videoH264" class="item">&lt;video&gt; in H.264 format</dt>
+      <dt id="videoTheora" class="item">&lt;video&gt; in Theora format</dt>
+      <dt id="contentEditable" class="item">contentEditable</dt>
+      <dt id="crossDocumentMessaging" class="item">Cross-document messaging</dt>
+      <dt id="dragAndDrop" class="item">Drag-and-drop</dt>
+      <dt id="fileAPI" class="item">File <abbr>API</abbr></dt>
+      <dt id="geolocation" class="item">Geolocation</dt>
+    </div>
+    <div class="column">
+      <dt id="history_f" class="item">History</dt>
+      <dt id="localStorage_f" class="item">Local storage</dt>
+      <dt id="microdata" class="item">Microdata</dt>
+      <dt id="offlineWebApplications" class="item">Offline web applications</dt>
+      <dt id="serverSentEvents" class="item">Server-sent events</dt>
+      <dt id="sessionStorage_f" class="item">Session storage</dt>
+      <dt id="SVGBasic" class="item"><abbr>SVG</abbr></dt>
+      <dt id="SVGTextHtml" class="item"><abbr>SVG</abbr> in text/html</dt>
+      <dt id="undo" class="item">Undo</dt>
+      <dt id="IndexedDB" class="item">IndexedDB</dt>
+      <dt id="webSockets" class="item">Web Sockets</dt>
+      <dt id="webSQLDatabase" class="item">Web SQL Database</dt>
+      <dt id="webWorkers" class="item">Web Workers</dt>
+      <dt id="widgets" class="item">Widgets: am I in one? </dt>
+    </div>
+    <div class="column">
+      <dt id="XMLHttpRequestCrossDomain" class="item">XMLHttpRequest: cross-domain requests</dt>
+      <dt id="XMLHttpRequestSendAsFormData" class="item">XMLHttpRequest: send as form data</dt>
+      <dt id="XMLHttpRequestUploadProgressEvents" class="item">XMLHttpRequest: upload progress events</dt>
+    </div>
+</dl>
+</body>
+</html>

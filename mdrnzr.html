@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta  charset="utf-8" />
+<meta name="viewport" content="width=device-width, maximum-scale=1.0">
+<title>Pruebas HTML5 Modernizr</title>
+<link type="text/css" rel="stylesheet" href="css/mdrnzr.css" />
+<script type="text/javascript" src="js/modernizr.custom.94300.js"></script>
+<script>
+	window.onload = detect;
+	
+	function detect(){
+		browser();	
+		screens();
+		html5features();
+	}
+		
+	function browser(){
+		txt= "<p>Platform: " + navigator.platform + "</p>";
+		txt+= "<p>User-agent header: " + navigator.userAgent + "</p>";
+		document.getElementById("browser").innerHTML=txt;	
+	};
+	function screens(){
+		txt= "<p>Total Height: " + screen.height + "</p>";
+		txt+= "<p>Total Width: " + screen.width + "</p>";
+		document.getElementById("screens").innerHTML=txt;	
+	};
+
+	function html5features(){
+		t = ['fontface','backgroundsize','borderimage','borderradius','boxshadow','flexbox','hsla','multiplebgs','opacity','rgba','textshadow','cssanimations','csscolumns','generatedcontent','cssgradients','cssreflections','csstransforms','csstransforms3d','csstransitions','applicationcache','canvas','canvastext','draganddrop','hashchange','history','audio','video','indexeddb','input','inputtypes','localstorage','postmessage','sessionstorage','websockets','websqldatabase','webworkers','geolocation','inlinesvg','smil','svg','svgclippaths','touch','webgl'];
+		for( x in t){	
+			constructor = 	eval('Modernizr.'+t[x]);
+			e=document.getElementById(t[x]).getAttribute("class")+" "+((constructor)?'ok':'ko');
+			document.getElementById(t[x]).setAttribute("class",e);
+		}
+	}
+
+
+
+</script>
+
+</head>
+<body>
+<h1>HTML5 TEST</h1>
+<div id="browser"></div>
+<div id="screens"></div>
+<div style="clear:both;"></div>
+<!-- HTML5 and CSS3 features -->
+<div class="column">
+    <h2>CSS FEATURES</h2>
+    <div class="item" id="fontface">fontface</div>
+    <div class="item" id="backgroundsize">backgroundsize</div>
+    <div class="item" id="borderimage">borderimage</div>
+    <div class="item" id="borderradius">borderradius</div>
+    <div class="item" id="boxshadow">boxshadow</div>
+    <div class="item" id="flexbox">flexbox</div>
+    <div class="item" id="hsla">hsla</div>
+    <div class="item" id="multiplebgs">multiplebgs</div>
+    <div class="item" id="opacity">opacity</div>
+    <div class="item" id="rgba">rgba</div>
+    <div class="item" id="textshadow">textshadow</div>
+    <div class="item" id="cssanimations">cssanimations</div>
+    <div class="item" id="csscolumns">csscolumns</div>
+    <div class="item" id="generatedcontent">generatedcontent</div>
+    <div class="item" id="cssgradients">cssgradients</div>
+    <div class="item" id="cssreflections">cssreflections</div>
+    <div class="item" id="csstransforms">csstransforms</div>
+    <div class="item" id="csstransforms3d">csstransforms3d</div>
+    <div class="item" id="csstransitions">csstransitions</div>
+</div>
+<div class="column">
+    <h2>HTML5 FEATURES</h2>
+    <div class="item" id="applicationcache">applicationcache</div>
+    <div class="item" id="canvas">canvas</div>
+    <div class="item" id="canvastext">canvastext</div>
+    <div class="item" id="draganddrop">draganddrop</div>
+    <div class="item" id="hashchange">hashchange</div>
+    <div class="item" id="history">history</div>
+    <div class="item" id="audio">audio</div>
+    <div class="item" id="video">video</div>
+    <div class="item" id="indexeddb">indexeddb</div>
+    <div class="item" id="input">input</div>
+    <div class="item" id="inputtypes">inputtypes</div>
+    <div class="item" id="localstorage">localstorage</div>
+    <div class="item" id="postmessage">postmessage</div>
+    <div class="item" id="sessionstorage">sessionstorage</div>
+    <div class="item" id="websockets">websockets</div>
+    <div class="item" id="websqldatabase">websqldatabase</div>
+    <div class="item" id="webworkers">webworkers</div>
+</div>
+<div class="column">
+    <h2>MISCELLANEOUS</h2>
+    <div class="item" id="geolocation">geolocation</div>
+    <div class="item" id="inlinesvg">inlinesvg</div>
+    <div class="item" id="smil">smil</div>
+    <div class="item" id="svg">svg</div>
+    <div class="item" id="svgclippaths">svgclippaths</div>
+    <div class="item" id="touch">touch</div>
+    <div class="item" id="webgl">webgl</div>
+</div>
+</body>
+</html>
